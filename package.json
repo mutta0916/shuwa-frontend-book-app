@@ -10,7 +10,7 @@
     "lint:ts": "tsc --noEmit",
     "test": "jest",
     "watch": "webpack --watch",
-    "eslint": "eslint ./src --ext ts,tsx"
+    "eslint": "eslint ./src --fix --ext ts,tsx"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",

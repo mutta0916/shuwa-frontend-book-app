@@ -20,7 +20,9 @@ function ReviewListItem({ review }: { review: Review }) {
 export default function ReviewList({ reviews }: { reviews: Review[] }) {
   return (
     <ul className="review__list">
-      {reviews.map(review => <ReviewListItem key={review.id} review={review} />)}
+      {reviews.map((review) => (
+        <ReviewListItem key={review.id} review={review} />
+      ))}
     </ul>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { mount, shallow } from 'enzyme'
+import { shallow } from 'enzyme'
 import ReviewList from './ReviewList'
 import type { Review } from './app'
 

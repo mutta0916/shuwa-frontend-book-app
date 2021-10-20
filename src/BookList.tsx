@@ -10,7 +10,7 @@ async function postReview(comment: string): Promise<Review> {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({ comment })
-  }).then<Review>(response => response.json())
+  }).then<Review>((response) => response.json())
 }
 
 function BookListItem({ book }: { book: Book }) {
@@ -30,13 +30,17 @@ function BookListItem({ book }: { book: Book }) {
         <div className="book-list__item__inner__info">
           <h3 className="book-list__item__inner__info__title">
             {book.title}
-            <span className="book-list__item__inner__info__title__author">
-              ({book.author})
-            </span>
+            <span className="book-list__item__inner__info__title__author">({book.author})</span>
           </h3>
           <p className="book-list__item__inner__info__overview">{book.overview}</p>
           <p className="book-list__item__inner__info__comment">
-            <a href="#" className="book-list__item__inner__info__comment__link" onClick={() => { setShowReview(!showReview) }}>
+            <a
+              href="#"
+              className="book-list__item__inner__info__comment__link"
+              onClick={() => {
+                setShowReview(!showReview)
+              }}
+            >
               {reviews.length}件の感想・評価
             </a>
           </p>
@@ -53,7 +57,9 @@ function BookListItem({ book }: { book: Book }) {
               onChange={(event) => setComment(event.currentTarget.value)}
               value={comment}
             ></textarea>
-            <button className="review__form__submit" type="submit">投稿</button>
+            <button className="review__form__submit" type="submit">
+              投稿
+            </button>
           </form>
         </div>
       </CSSTransition>
@@ -64,7 +70,9 @@ function BookListItem({ book }: { book: Book }) {
 export default function BookList({ books }: { books: Book[] }) {
   return (
     <ul className="book-list">
-      {books.map(book => <BookListItem key={book.id} book={book} />)}
+      {books.map((book) => (
+        <BookListItem key={book.id} book={book} />
+      ))}
     </ul>
   )
 }
